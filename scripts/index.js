@@ -9,7 +9,9 @@ async function main() {
     await printReplica("Main", "oh, hi there", 100);
     await setCanvas("Main", "max");
 
-    document.querySelector(".game").classList.add("withInput");
+    await showInput();
+    await game(questions, answers, correctAnswers);
+    await hideInput();
 }
 
 

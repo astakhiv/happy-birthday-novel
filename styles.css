@@ -8,6 +8,10 @@
     box-sizing: border-box;
 }
 
+div {
+    overflow: scroll;
+}
+
 html, body, .game {
     width: 100vw;
     height: 100vh;
@@ -33,7 +37,6 @@ body {
 
 #Main {
     position: absolute;
-    bottom: 1;
     border-top: 2px solid #414868;
 }
 
@@ -70,14 +73,17 @@ body {
 
 .game {
     position: relative;
+    transition: all 500ms ease-in;
 }
+
+
 
 .withInput {
     height: 90%;
 }
 
 .input {
-    border: 1px solid red;
+    border-top: 2px solid #414868;
     min-height: 50px;
     height: 10%;
     width: 100%;
@@ -96,5 +102,96 @@ button {
     border-left: none;
     border-top: none;
     border-radius: 0 0 10px 0;
+    justify-content: center;
+    color: #66ff66;
+}
+
+#actionScreen {
+    color: red;
+    border: 1px solid green;
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    z-index: -2;
+    transition: all ease-in 250ms;
+    
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+}
+
+.prep {
+    z-index: 2 !important;
+}
+
+.a1, .a2, .a3, .a4, .a5, .a6, .a7, .a8, .a9 {
+    display: none;
+    border: 1px solid red;
+    width: 10%;
+    height: 10%;
+    position: absolute;
+    z-index: -2;
+    background-color: #0a0047;
+    transition: all ease-in 250ms;
+}
+
+.pos1, .pos2, .pos3, .pos4, .pos5, .pos6, .pos7, .pos8, .pos9 {
+    z-index: 3;
+    display: block;
+}
+
+.pos1 {
+    width: 50%;
+    height: 27%;
+    transform: translate(50%, 50%);
+}
+
+.pos2 {
+    width: 30%;
+    height: 50%;
+    transform: translate(200%, 60%);
+}
+
+.pos3 {
+    width: 45%;
+    height: 40%;
+    transform: translate(70%, 85%);
+}
+
+.pos4 {
+    width: 70%;
+    height: 20%;
+    transform: translate(15%, 350%);
+}
+
+.pos5 {
+    width: 30%;
+    height: 30%;
+    transform: translate(220%, 25%);
+}
+
+.pos6 {
+    width: 40%;
+    height: 65%;
+    transform: translate(10%, 25%);
+}
+
+.pos7 {
+    width: 45%;
+    height: 20%;
+    transform: translate(120%, 200%);
+}
+
+.pos8 {
+   width: 35%;
+   height: 35%;
+   transform: translate(180%, 180%);
+}
+
+.pos9 {
+    width: 50%;
+    height: 50%;
+    transform: translate(50%, 50%);
 }
 
