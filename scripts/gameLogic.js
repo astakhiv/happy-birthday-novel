@@ -28,12 +28,12 @@ const input = document.querySelector(".input");
 const sleep = (delay) => new Promise((resolve) => setTimeout(resolve, delay));
 const randomNum = (max) => Math.floor(Math.random() * max);
 
-async function printReplica(canvas, text, delay) {
+async function printReplica(canvas, text, talker="", delay=100) {
     const curCanvas = canvases[canvas];
-    const character = characters[canvas];
+    const character = talker; 
     curCanvas.innerHTML += speech;
     const replica = document.getElementById("current");
-    replica.children[0].innerHTML = character + ":";
+    replica.children[0].innerHTML = character + (character != "" ? ("&nbsp".repeat(11-talker.length)+":") : "&nbsp".repeat(12));
    
     await printText(replica.children[1], text, delay);
     
@@ -72,6 +72,38 @@ async function hideInput() {
 }
 
 let rep = false;
+
+async function wrongAns(replica, ans) {
+    offButtons(true);
+    await printReplica("Main", ans, "Player");
+    await printReplica("Main", replica, "Taskmaster");
+    await getUserName();
+}
+
+async function printName() {
+    offButtons(true);
+    await printReplica("Main", "Anastasiia", "Anastasiia");
+    answered = true;
+}
+
+let answered = false;
+
+async function getUserName() {
+    setButtons(
+        ["Nastya", "Anastasis", "Anastasiia", "Does it matter?"],
+        [
+            () => wrongAns("Wha? Ya don't look nasty, just gimme the real name.", "Nastya"),
+            () => wrongAns("Kidding me? We ain't making tale names here, got me?", "Anastasis"),
+            printName,
+            () => wrongAns("For real, u ain't a kid, just answer, it matters.", "Does it matter?")
+        ]
+    );
+    
+    while (answered === false) {
+        await sleep(1);
+    }
+
+}
 
 async function game(questions, answers, correctAns) {
     actionScreen.classList.add("prep");
@@ -130,8 +162,6 @@ async function actionEvent(question, answers, correctAns, screenNumber) {
 function onClickHandler(e, f, timerID,screenNumber) {
     f(timerID, screenNumber);
     offButtons(true);
-    console.log(e.target);
-    e.target.removeEventListener("click", onClickHandler, false);
 }
 
 function incorrect(timerID, screenNumber) {
