@@ -3,27 +3,27 @@ const corReplicas = [
     "No way, just another guess...",
     "So what, you think that's enough?!?",
     "You won't deal with the next one that easily!",
-    "No way!",
+    "No way! It can't be!",
 ];
 
 const incReplicas = [
     "Look at her, the one who said he's HER",
     "What's now? Gonna give up?",
     "Ha-ha-ha, not so fast, you're just a copy!",
-    "You aren't even close to HER",
+    "You aren't even close to HER.",
     "So what now? Not that powerful?"
 ];
 
 const questions = [
-    "The one, that forms the right angle,<br>posing well in the area of the triangle",
-    "Oh yes, the first of the greek",
-    "The period of sin is for ya",
-    "The ordinate is to help you",
-    "The nomial of Newton",
-    "The one, that goes as follows: a over the double root of three",
-    "Neither s nor z, it keeps the two in one",
-    "The fourth of the 27",
-    "Ay is your answer"
+    "The one, that forms the right angle, posing well in the area of the triangle.",
+    "Oh yes, the first of the greek.",
+    "The period of sin is for ya.",
+    "The ordinate is to help you.",
+    "The nomial of Newton.",
+    "The one, that goes as follows: a over the double root of three.",
+    "Neither s nor z, it keeps the two in one.",
+    "The 4th of the 27.",
+    "Ay is your answer."
 ];
 
 const answers = [
